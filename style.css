@@ -50,3 +50,12 @@ h1,h2{
 .choose-selection button:hover{
     background-color: rgba(0, 0, 0, 0.279);
 }
+.round-initialisation{
+    margin-top: 50px;
+}
+.round-initialisation button{
+    width: 100px;
+    height: 50px;
+    border: none;
+    border-radius: 20px;
+}

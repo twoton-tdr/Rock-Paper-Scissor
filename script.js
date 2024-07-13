@@ -2,74 +2,80 @@ let computerGuess;
 let humanGuess;
 let humanScore;
 let computerScore;
-let start;
-start = prompt("Click y to start the game");
-if(start =='y' || start == 'Y'){
-    rounds();
-}
-else{
-    alert('game not started');
-}
+let round;
+round = 0;
+const roundDisplay = document.querySelector('#round-number');
+const start = document.querySelector('#start');
+const selection = document.querySelector('.choose-selection');
+const playerChoice = document.querySelector('#player-choice'); //to display player choice
+const cpChoice = document.querySelector("#computer-choice"); // to display comp choice
+// start = prompt("Click y to start the game");
+// if(start =='y' || start == 'Y'){
+//     rounds();
+// }
+// else{
+//     alert('game not started');
+// }
 function getComputerChoice(){
     computerGuess = Math.floor(Math.random()*9)+1;
     
     if(computerGuess<4)
         {
            
-            computerGuess= "ROCK";
+            computerGuess= "rock";
         }
     else if(computerGuess>3 && computerGuess<7)
         {
             
-            computerGuess="PAPER";
+            computerGuess="paper";
         }
     else {
         
-        computerGuess="SCISSOR";
+        computerGuess="scissor";
         
     }
+    console.log("computer "+computerGuess)
     return computerGuess;
 };
-function getHumanChoice(){
-    humanGuess= prompt("Rock , Paper , Scissor");
-    humanGuess= humanGuess.toUpperCase();
-    
-   
-};
+// function getHumanChoice(){
+//     selection.addEventListener('click',(e)=>{ humanGuess=console.log(e.target.id);})
+//     // console.log(humanGuess);
+//     return humanGuess;
+// };
 function playround(humanChoice,computerChoice){
-    console.log(humanChoice);
-    console.log(computerChoice);
+    // console.log(humanChoice);
+    // console.log(computerChoice);
     if(humanChoice===computerChoice){
         alert('DRAW!!!!')
         alert(humanScore+' | '+computerScore)
     }
     else{
-        if(humanChoice==='ROCK' && computerChoice==='PAPER'){
+        if(humanChoice==='rock' && computerChoice==='paper'){
             alert('computer beats human!!!!!');
             computerScore = ++computerScore;
             alert(humanScore+' | '+computerScore)
         }
-        else if(humanChoice==='ROCK' && computerChoice==='SCISSOR'){
+        else if(humanChoice==='rock' && computerChoice==='scissor'){
             alert('human beats the computer!!!!');
             humanScore = ++humanScore;
             alert(humanScore+' | '+computerScore)
         }
-        else if(humanChoice==='PAPER' && computerChoice==='ROCK'){
+        else if(humanChoice==='paper' && computerChoice==='rock'){
             alert('human beats the computer!!!!');
             humanScore = ++humanScore;
             alert(humanScore+' | '+computerScore)
         }
-        else if(humanChoice==='PAPER' && computerChoice==='SCISSOR'){
+        else if(humanChoice==='paper' && computerChoice==='scissor'){
             alert('computer beats the human!!!!');
             computerScore = ++computerScore;
             alert(humanScore+' | '+computerScore)
         }
-        else if(humanChoice==='SCISSOR' && computerChoice==='ROCK'){
+        else if(humanChoice==='scissor' && computerChoice==='rock'){
             alert('computer beats the human!!!!');
             computerScore = ++computerScore;
             alert(humanScore+' | '+computerScore);
         }
-        else if(humanChoice==='SCISSOR' && computerChoice==='PAPER'){
+        else if(humanChoice==='scissor' && computerChoice==='paper'){
             alert('human beats the computer!!!!');
             humanScore = ++humanScore;
             alert(humanScore+' | '+computerScore)
@@ -83,11 +89,10 @@ function playround(humanChoice,computerChoice){
 function rounds(){
     humanScore=0;
     computerScore=0;
-    for(let i=0;i<5;i++){
     getComputerChoice();
     getHumanChoice();
     playround(humanGuess,computerGuess);
-    };
+    
     if(humanScore<computerScore){
         alert('computer wins!!!')
     }
@@ -95,3 +100,20 @@ function rounds(){
         alert('human wins!!!!!!')
     }
 }
+
+
+selection.addEventListener('click',(e)=>{
+    humanScore=0;
+    computerScore=0;
+    getComputerChoice();
+    humanGuess=e.target.id;
+    console.log(humanGuess);
+    playerChoice.textContent = humanGuess;
+    cpChoice.textContent = computerGuess;
+    playround(humanGuess,computerGuess);
+    ++round;
+    roundDisplay.textContent = round;
+    
+    
+});
+
