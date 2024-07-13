@@ -2,7 +2,7 @@ let computerGuess;
 let humanGuess;
 let humanScore=0;
 let computerScore=0;
-let round=0;
+let round=1;
 
 const modal = document.querySelector('#modal');
 const message = document.querySelector('#message') // to assign content to modal
@@ -121,7 +121,7 @@ function playround(humanChoice,computerChoice){
 
 selection.addEventListener('click',(e)=>{
   
-    if(round!==5){
+    if(round<5){
         getComputerChoice();
         humanGuess=e.target.id;
         playerChoice.textContent = humanGuess;
@@ -131,6 +131,7 @@ selection.addEventListener('click',(e)=>{
         roundDisplay.textContent = round;
     }
     else if(round===5){
+        
         if(humanScore<computerScore){
             message.textContent="Computer wins!!!!"
          }
@@ -139,7 +140,7 @@ selection.addEventListener('click',(e)=>{
          }
 
         modalpop();
-        round=0;
+        round=1;
         roundDisplay.textContent = round;
         compPoint.textContent = 0;
         playerPoint.textContent = 0;
