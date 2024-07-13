@@ -10,6 +10,7 @@ h1,h2{
     flex-direction: column;
     align-items: center;
 }
+
 .results{
     display: flex;
     width: 500px;
@@ -58,4 +59,17 @@ h1,h2{
     height: 50px;
     border: none;
     border-radius: 20px;
+}
+dialog{
+    padding: 100px;
+    border: none;
+    outline: none;
+    border-radius: 20px;
+    font-size: 20px;
+    background-image: linear-gradient(45deg,red,purple);
+    color: white;
+}
+#modal::backdrop{
+    background-image: linear-gradient(45deg,red,purple);
+    opacity: 0.6;
 }

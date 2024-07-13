@@ -1,21 +1,28 @@
 let computerGuess;
 let humanGuess;
-let humanScore;
-let computerScore;
-let round;
-round = 0;
+let humanScore=0;
+let computerScore=0;
+let round=0;
+
+const modal = document.querySelector('#modal');
+const message = document.querySelector('#message') // to assign content to modal
+
 const roundDisplay = document.querySelector('#round-number');
+roundDisplay.textContent = round; //displaying the round at round 1 then its done through inside the function
 const start = document.querySelector('#start');
 const selection = document.querySelector('.choose-selection');
 const playerChoice = document.querySelector('#player-choice'); //to display player choice
 const cpChoice = document.querySelector("#computer-choice"); // to display comp choice
-// start = prompt("Click y to start the game");
-// if(start =='y' || start == 'Y'){
-//     rounds();
-// }
-// else{
-//     alert('game not started');
-// }
+
+const playerPoint = document.querySelector("#player");
+playerPoint.textContent=humanScore;
+
+const compPoint = document.querySelector("#computer");
+compPoint.textContent=computerScore;
+
+
+
+
 function getComputerChoice(){
     computerGuess = Math.floor(Math.random()*9)+1;
     
@@ -37,48 +44,58 @@ function getComputerChoice(){
     console.log("computer "+computerGuess)
     return computerGuess;
 };
-// function getHumanChoice(){
-//     selection.addEventListener('click',(e)=>{ humanGuess=console.log(e.target.id);})
-//     // console.log(humanGuess);
-//     return humanGuess;
-// };
+
+
 function playround(humanChoice,computerChoice){
-    // console.log(humanChoice);
-    // console.log(computerChoice);
+    
     if(humanChoice===computerChoice){
-        alert('DRAW!!!!')
-        alert(humanScore+' | '+computerScore)
+        message.textContent = "Draw!!!!";
+        modalpop();
+        playerPoint.textContent=humanScore;
+        compPoint.textContent=computerScore;
     }
     else{
         if(humanChoice==='rock' && computerChoice==='paper'){
-            alert('computer beats human!!!!!');
+            message.textContent = "You lose!!!!";
+            modalpop();
             computerScore = ++computerScore;
-            alert(humanScore+' | '+computerScore)
+            playerPoint.textContent=humanScore;
+            compPoint.textContent=computerScore;
         }
         else if(humanChoice==='rock' && computerChoice==='scissor'){
-            alert('human beats the computer!!!!');
+            message.textContent = "You Win!!!!"
+            modalpop();
             humanScore = ++humanScore;
-            alert(humanScore+' | '+computerScore)
+            playerPoint.textContent=humanScore;
+            compPoint.textContent=computerScore;
         }
         else if(humanChoice==='paper' && computerChoice==='rock'){
-            alert('human beats the computer!!!!');
+            message.textContent = "You Win!!!!";
+            modalpop();
             humanScore = ++humanScore;
-            alert(humanScore+' | '+computerScore)
+            playerPoint.textContent=humanScore;
+            compPoint.textContent=computerScore;
         }
         else if(humanChoice==='paper' && computerChoice==='scissor'){
-            alert('computer beats the human!!!!');
+            message.textContent = "You lose!!!!";
+            modalpop();
             computerScore = ++computerScore;
-            alert(humanScore+' | '+computerScore)
+            playerPoint.textContent=humanScore;
+            compPoint.textContent=computerScore;
         }
         else if(humanChoice==='scissor' && computerChoice==='rock'){
-            alert('computer beats the human!!!!');
+            message.textContent = "You lose!!!!";
+            modalpop();
             computerScore = ++computerScore;
-            alert(humanScore+' | '+computerScore);
+            playerPoint.textContent=humanScore;
+            compPoint.textContent=computerScore;
         }
         else if(humanChoice==='scissor' && computerChoice==='paper'){
-            alert('human beats the computer!!!!');
+            message.textContent = "You Win!!!!";
+            modalpop();
             humanScore = ++humanScore;
-            alert(humanScore+' | '+computerScore)
+            playerPoint.textContent=humanScore;
+            compPoint.textContent=computerScore;
         }
         else{
             alert("invalid input")
@@ -86,34 +103,54 @@ function playround(humanChoice,computerChoice){
     }
 
 }
-function rounds(){
-    humanScore=0;
-    computerScore=0;
-    getComputerChoice();
-    getHumanChoice();
-    playround(humanGuess,computerGuess);
+// function rounds(){
+//     humanScore=0;
+//     computerScore=0;
+//     getComputerChoice();
+//     getHumanChoice();
+//     playround(humanGuess,computerGuess);
     
-    if(humanScore<computerScore){
-        alert('computer wins!!!')
-    }
-    else{
-        alert('human wins!!!!!!')
-    }
-}
+//     if(humanScore<computerScore){
+//         alert('computer wins!!!')
+//     }
+//     else{
+//         alert('human wins!!!!!!')
+//     }
+// }
 
 
 selection.addEventListener('click',(e)=>{
-    humanScore=0;
-    computerScore=0;
-    getComputerChoice();
-    humanGuess=e.target.id;
-    console.log(humanGuess);
-    playerChoice.textContent = humanGuess;
-    cpChoice.textContent = computerGuess;
-    playround(humanGuess,computerGuess);
-    ++round;
-    roundDisplay.textContent = round;
-    
-    
+  
+    if(round!==5){
+        getComputerChoice();
+        humanGuess=e.target.id;
+        playerChoice.textContent = humanGuess;
+        cpChoice.textContent = computerGuess;
+        playround(humanGuess,computerGuess);
+        ++round;
+        roundDisplay.textContent = round;
+    }
+    else if(round===5){
+        if(humanScore<computerScore){
+            message.textContent="Computer wins!!!!"
+         }
+        else{
+             message.textContent="Human wins!!!!"
+         }
+
+        modalpop();
+        round=0;
+        roundDisplay.textContent = round;
+        compPoint.textContent = 0;
+        playerPoint.textContent = 0;
+    }
 });
 
+
+let modalpop =function (){
+    modal.showModal();
+    setTimeout(modalclose,500);
+};
+function modalclose(){
+    modal.close();
+}
