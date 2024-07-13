@@ -4,20 +4,23 @@
         <meta http-equiv="Content-Type" content="text/html;charset=UTF-8">
         <title>Rock-Paper-Scissor</title>
         <script src="script.js" defer></script>
-        
+        <link rel="stylesheet" href="style.css">
     </head>
     <body>
         <header><h1>Rock Paper Scissor</h1></header>
         <div class="rounds"><h2>Round: <p id="round-number"></p></h2></div>
         
         <div class="game-display">
-            <div class="results">
-                <p>Player: <p id="player"></p></p>
-                <p>Computer: <p id="computer"></p></p>
-            </div>
+            
             <div class="selection">
-                <div class="player-selection"></div>
-                <div class="computer-selection"></div>
+                <div class="player-selection">
+                    <p>Player: <span id="player"></span></p>
+                    <div id="player-choice"></div>
+                </div>
+                <div class="computer-selection">
+                    <p>Computer: <span id="computer"></span></p>
+                    <div id="computer-choice"></div>
+                </div>
             </div>
             <div class="choose-selection">
                 <button id="rock">Rock</button>
