@@ -20,7 +20,10 @@ playerPoint.textContent=humanScore;
 const compPoint = document.querySelector("#computer");
 compPoint.textContent=computerScore;
 
-
+const notify = document.querySelector(".notify");
+const notificat = document.createElement("p");
+notify.appendChild(notificat);
+let output='';
 
 
 function getComputerChoice(){
@@ -49,50 +52,50 @@ function getComputerChoice(){
 function playround(humanChoice,computerChoice){
     
     if(humanChoice===computerChoice){
-        message.textContent = "Draw!!!!";
-        modalpop();
+        output = "Draw!!!!";
+        notification();
         playerPoint.textContent=humanScore;
         compPoint.textContent=computerScore;
     }
     else{
         if(humanChoice==='rock' && computerChoice==='paper'){
-            message.textContent = "You lose!!!!";
-            modalpop();
+            output = "You lose!!!!";
+            notification();
             computerScore = ++computerScore;
             playerPoint.textContent=humanScore;
             compPoint.textContent=computerScore;
         }
         else if(humanChoice==='rock' && computerChoice==='scissor'){
-            message.textContent = "You Win!!!!"
-            modalpop();
+            output = "You Win!!!!"
+            notification();
             humanScore = ++humanScore;
             playerPoint.textContent=humanScore;
             compPoint.textContent=computerScore;
         }
         else if(humanChoice==='paper' && computerChoice==='rock'){
-            message.textContent = "You Win!!!!";
-            modalpop();
+            output = "You Win!!!!";
+            notification();
             humanScore = ++humanScore;
             playerPoint.textContent=humanScore;
             compPoint.textContent=computerScore;
         }
         else if(humanChoice==='paper' && computerChoice==='scissor'){
-            message.textContent = "You lose!!!!";
-            modalpop();
+            output = "You lose!!!!";
+            notification();
             computerScore = ++computerScore;
             playerPoint.textContent=humanScore;
             compPoint.textContent=computerScore;
         }
         else if(humanChoice==='scissor' && computerChoice==='rock'){
-            message.textContent = "You lose!!!!";
-            modalpop();
+            output = "You lose!!!!";
+            notification();
             computerScore = ++computerScore;
             playerPoint.textContent=humanScore;
             compPoint.textContent=computerScore;
         }
         else if(humanChoice==='scissor' && computerChoice==='paper'){
-            message.textContent = "You Win!!!!";
-            modalpop();
+            output = "You Win!!!!";
+            notification();
             humanScore = ++humanScore;
             playerPoint.textContent=humanScore;
             compPoint.textContent=computerScore;
@@ -103,21 +106,6 @@ function playround(humanChoice,computerChoice){
     }
 
 }
-// function rounds(){
-//     humanScore=0;
-//     computerScore=0;
-//     getComputerChoice();
-//     getHumanChoice();
-//     playround(humanGuess,computerGuess);
-    
-//     if(humanScore<computerScore){
-//         alert('computer wins!!!')
-//     }
-//     else{
-//         alert('human wins!!!!!!')
-//     }
-// }
-
 
 selection.addEventListener('click',(e)=>{
   
@@ -154,4 +142,12 @@ let modalpop =function (){
 };
 function modalclose(){
     modal.close();
+}
+
+//to send the message who won in the current round to the screen
+function notification(){
+    notificat.textContent = output;
+    setTimeout(()=>{
+        notificat.textContent = "";
+    },3000)
 }

@@ -40,7 +40,7 @@ h1,h2{
     background-color: bisque;
 }
 .choose-selection{
-    margin-top: 50px;
+    margin-top: 10px;
 }
 .choose-selection button{
     width: 100px;
@@ -51,15 +51,7 @@ h1,h2{
 .choose-selection button:hover{
     background-color: rgba(0, 0, 0, 0.279);
 }
-.round-initialisation{
-    margin-top: 50px;
-}
-.round-initialisation button{
-    width: 100px;
-    height: 50px;
-    border: none;
-    border-radius: 20px;
-}
+
 dialog{
     padding: 100px;
     border: none;
@@ -72,4 +64,16 @@ dialog{
 #modal::backdrop{
     background-image: linear-gradient(45deg,red,purple);
     opacity: 0.6;
+}
+
+.notify{
+    height: 100px;
+    width: 500px;
+    background-color: aqua;
+    margin-top: 12px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 600;
+    font-size: 24px;
 }
