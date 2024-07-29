@@ -37,7 +37,6 @@ h1,h2{
 #player-choice , #computer-choice{
     width: 150px;
     height: 100px;
-    background-color: bisque;
 }
 .choose-selection{
     margin-top: 10px;
@@ -76,4 +75,19 @@ dialog{
     justify-content: center;
     font-weight: 600;
     font-size: 24px;
+}
+.rock , .paper , .scissor{
+    display: flex;
+    align-self: flex-end;
+    justify-content: center;
+    background-repeat: no-repeat;
+}
+.rock{
+    background-image: url(/imgs/rock.svg);
+}
+.paper{
+    background-image: url(/imgs/paper.svg);
+}
+.scissor{
+    background-image: url(/imgs/scissor.svg);
 }

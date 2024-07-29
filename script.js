@@ -112,8 +112,8 @@ selection.addEventListener('click',(e)=>{
     if(round<5){
         getComputerChoice();
         humanGuess=e.target.id;
-        playerChoice.textContent = humanGuess;
-        cpChoice.textContent = computerGuess;
+        playerChoice.classList.add(humanGuess);
+        cpChoice.classList.add(computerGuess);
         playround(humanGuess,computerGuess);
         ++round;
         roundDisplay.textContent = round;
@@ -123,15 +123,22 @@ selection.addEventListener('click',(e)=>{
         if(humanScore<computerScore){
             message.textContent="Computer wins!!!!"
          }
+        else if(humanScore == computerScore){
+            message.textContent = "Its a draw!!!"
+        }
         else{
-             message.textContent="Human wins!!!!"
+             message.textContent="You wins!!!!"
          }
 
         modalpop();
         round=1;
+        humanScore=0;
+        computerScore=0;
         roundDisplay.textContent = round;
         compPoint.textContent = 0;
         playerPoint.textContent = 0;
+        playerChoice.className='';
+        cpChoice.className='';
     }
 });
 
@@ -149,5 +156,5 @@ function notification(){
     notificat.textContent = output;
     setTimeout(()=>{
         notificat.textContent = "";
-    },3000)
+    },500)
 }
