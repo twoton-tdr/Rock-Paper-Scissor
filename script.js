@@ -110,6 +110,8 @@ function playround(humanChoice,computerChoice){
 selection.addEventListener('click',(e)=>{
   
     if(round<5){
+        playerChoice.className="";
+        cpChoice.className="";
         getComputerChoice();
         humanGuess=e.target.id;
         playerChoice.classList.add(humanGuess);
@@ -121,13 +123,19 @@ selection.addEventListener('click',(e)=>{
     else if(round===5){
         
         if(humanScore<computerScore){
-            message.textContent="Computer wins!!!!"
+            message.textContent="Computer wins!!!!";
+            output = "Computer wins!!";
+            notification();
          }
         else if(humanScore == computerScore){
-            message.textContent = "Its a draw!!!"
+            message.textContent = "Its a draw!!!";
+            output = "Its a draw";
+            notification();
         }
         else{
-             message.textContent="You wins!!!!"
+             message.textContent="You wins!!!!";
+             output = "You Wins!!!!";
+             notification();
          }
 
         modalpop();
@@ -158,3 +166,4 @@ function notification(){
         notificat.textContent = "";
     },500)
 }
+
