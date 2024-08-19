@@ -25,6 +25,7 @@ const notificat = document.createElement("p");
 notify.appendChild(notificat);
 let output='';
 
+notificat.textContent = "Rock Paper Scissors!";
 
 function getComputerChoice(){
     computerGuess = Math.floor(Math.random()*9)+1;
@@ -125,17 +126,20 @@ selection.addEventListener('click',(e)=>{
         if(humanScore<computerScore){
             message.textContent="Computer wins!!!!";
             output = "Computer wins!!";
-            notification();
+            notificat.textContent = "Rock Paper Scissors!"
+
          }
         else if(humanScore == computerScore){
             message.textContent = "Its a draw!!!";
             output = "Its a draw";
-            notification();
+            notificat.textContent = "Rock Paper Scissors!"
+
         }
         else{
              message.textContent="You wins!!!!";
              output = "You Wins!!!!";
-             notification();
+             notificat.textContent = "Rock Paper Scissors!"
+
          }
 
         modalpop();
@@ -167,3 +171,5 @@ function notification(){
     },500)
 }
 
+// TO-DO
+// setup a breath effect for rock paper scissor in the notification
