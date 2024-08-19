@@ -8,7 +8,13 @@
   
   }
   
-  
+@font-face {
+  font-family: 'roboto';
+  src: url(/fonts/roboto-thin-webfont.woff2);
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
   
   
   @font-face {
@@ -94,15 +100,14 @@ header{
     position: sticky;
     top: 0;
     display: flex;
-    justify-content: space-between;
+    justify-content: space-around;
     align-items: center;
     background-color: rgba(0, 0, 0, .5);
     z-index: 1;
   }
   .heading{
-    padding-left: 50px;
     font-family: "Raleway" , "tahoma" ,system-ui;
-    font-size: 36px;
+    font-size: 32px;
     font-weight: 600;
     color: var(--charecter-color);
   }
@@ -126,22 +131,18 @@ header{
     color: var(--charecter-color);
     text-decoration: none;
     display: block;
-    font-size: 20px;
-    font-weight: 200;
+    font-size: 16px;
+    font-weight: 100;
     
   }
-  .right-nav{
-    display: flex;
-    flex-direction: row;
-    padding-right: 50px;
+
+  .right-heading{
+    font-size: 24px;
+    padding-left: 50px;
+    font-family: "Raleway" , "tahoma" ,system-ui;
+    font-weight: 600;
+    color: var(--charecter-color);
   }
-  .right-nav span{
-    padding: 0px 20px 0px 20px;
-  }
-  .search{
-    order: -1;
-  }
-  
   ul.drop-down{
     display: none;
     position: absolute;
