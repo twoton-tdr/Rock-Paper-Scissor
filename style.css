@@ -91,84 +91,7 @@
 body{
     background-color: var(--background-color);
 }
-/* Nav bar */
-/* navbar */
 
-header{
-    padding-top: 5px;
-    width: 100vw;
-    position: sticky;
-    top: 0;
-    display: flex;
-    justify-content: space-evenly;
-    align-items: center;
-    background-color: rgba(0, 0, 0, .5);
-    z-index: 1;
-  }
-  .heading{
-    font-family: "Raleway" , "tahoma" ,system-ui;
-    font-size: 32px;
-    font-weight: 600;
-    color: var(--charecter-color);
-  }
-  li.active{
-    text-decoration: underline;
-    text-underline-offset: 10px;
-    color: var(--charecter-color);
-  }
-
-  header ul li{
-    display: inline-block;
-    position: relative;
-    padding: 10px 20px 10px 20px;
-  }
-  header ul li:hover{
-    text-decoration-line: underline;
-    text-underline-offset: 10px ;
-    color: var(--charecter-color);
-  }
-  nav li a{
-    color: var(--charecter-color);
-    text-decoration: none;
-    display: block;
-    font-size: 16px;
-    font-weight: 100;
-    
-  }
-
-  .right-heading{
-    font-size: 24px;
-    padding-left: 50px;
-    font-family: "Raleway" , "tahoma" ,system-ui;
-    font-weight: 600;
-    color: var(--charecter-color);
-  }
-  ul.drop-down{
-    display: none;
-    position: absolute;
-    color: var(--charecter-color);
-    width: 150px;
-  }
-  .drop-down li{
-    font-family: roboto;
-    padding-top: 10px;
-    padding-bottom: 10px;
-    display: block;
-    background-color: black;
-    
-  }
-  .drop-down a{
-    font-weight: 500;
-    font-size: 16px;
-  }
-  header ul li:hover ul.drop-down{
-    display: block;
-  }
-  .drop-down li:first-child{
-    margin-top: 10px;
-    /* to align to nested list to the navbar else its going inside the navbar */
-  }
- /* nav end */
 
 .hero-heading{
   font-size: 28px;
@@ -278,63 +201,17 @@ dialog{
 
 /* footer */
 
-footer{
-    margin-top: 100px;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-    height: 300px;
-    color: var(--charecter-color);
-    background-color: var(--background-color2);
-  }
-  footer h1{
-    font-size: 48px;
-    font-family: "Raleway";
-  }
-  .footer-section-two ul{
-    list-style-type: none;
-    display: flex;
-    flex-direction: column;
-  }
-  .footer-section-two li{
-    padding: 20px 0px;
-  }
-  .footer-section-two a{
-    text-decoration: none;
-    color: var(--charecter-color);
-    font-size: 18px;
-    font-weight: 600;
-  }
-  .footer-section-two a:hover{
-    text-decoration: underline;
-  }
-  .footer-section-three{
-    height: 50%;
-    display: flex;
-    flex-direction: column;
-    justify-content: space-around;
-  }
-  .footer-section-three h2{
-    font-size: 28px;
-  }
-  .footer-section-three ul{
-    list-style-type: none;
-    display: flex;
-    flex-direction: row;
-    align-items: center;
-    justify-content: space-around;
-  }
-  .footer-section-three li:hover span{
-    scale: 1.2;
-  }
+
   .copyright-box{
     background-color: var(--background-color2);
     border-top:solid 3px var(--border-color-cards);
     display: flex;
     justify-content: center;
-    height: 80px;
+    height: 40px;
     align-items: center;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
     
   }
   .copy{
