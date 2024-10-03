@@ -170,6 +170,10 @@ header{
   }
  /* nav end */
 
+.hero-heading{
+  font-size: 28px;
+}
+
 h1,h2{
     text-align: center;
     color: var(--charecter-color);
@@ -262,13 +266,13 @@ dialog{
     background-repeat: no-repeat;
 }
 .rock{
-    background-image: url(/imgs/rock.svg);
+    background-image: url(imgs/rock.svg);
 }
 .paper{
-    background-image: url(/imgs/paper.svg);
+    background-image: url(imgs/paper.svg);
 }
 .scissor{
-    background-image: url(/imgs/scissor.svg);
+    background-image: url(imgs/scissor.svg);
 }
 
 
